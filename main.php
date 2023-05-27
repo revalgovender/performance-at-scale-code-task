@@ -37,7 +37,8 @@ $developers = [
  * Approach 1 - Nested Loops.
  * Simply loop through the candidate data, nest a loop for the developer data and make a comparison.
  * The complexity in this approach will lead to performance issues with a large dataset.
- * Big O notation = 
+ * Time Complexity: O(n*m)
+ * Space Complexity: O(1)
  */
 function nestedLoop(array $candidates, array $developers): array
 {
@@ -56,7 +57,8 @@ function nestedLoop(array $candidates, array $developers): array
  * Appraoch 2 - Lookup array
  * Create new array which maps candidate ids to email address.
  * We can then compare developers against this new array to determine id
- * Big O notation = 
+ * Time Complexity: O(m+n)
+ * Space Complexity: O(m)
  */
 function lookupArray(array $candidates, array $developers): array 
 {
@@ -67,7 +69,7 @@ function lookupArray(array $candidates, array $developers): array
     }
 
     foreach ($developers as $key => $developer) {
-        if (array_key_exists($developer['email'], $candidateIdKeyedByEmail)) {
+        if (isset($candidateIdKeyedByEmail[$developer['email']])) {
             $developers[$key]['id'] = $candidateIdKeyedByEmail[$developer['email']];    
         }
     }
@@ -76,4 +78,4 @@ function lookupArray(array $candidates, array $developers): array
 }
 
 echo "Developers with ids: \n";
-print_r(lookupArray($candidates, $developers));
+print_r(binarySearch($candidates, $developers));
