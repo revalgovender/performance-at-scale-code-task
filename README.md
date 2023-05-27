@@ -1,4 +1,4 @@
-# Perfomance At Scale Code Task
+# Perfomance At Scale Code Task (30min time limit)
 
 ## Description
 We have a data set consisting of candidates and developers.
