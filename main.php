@@ -54,7 +54,7 @@ function nestedLoop(array $candidates, array $developers): array
 }
 
 /**
- * Appraoch 2 - Lookup array
+ * Approach 2 - Lookup array
  * Create new array which maps candidate ids to email address.
  * We can then compare developers against this new array to determine id
  * Time Complexity: O(m+n)
@@ -78,4 +78,4 @@ function lookupArray(array $candidates, array $developers): array
 }
 
 echo "Developers with ids: \n";
-print_r(binarySearch($candidates, $developers));
+print_r(lookupArray($candidates, $developers));
